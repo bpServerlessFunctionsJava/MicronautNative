@@ -6,7 +6,7 @@ import java.net.MalformedURLException;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import edu.umd.cs.findbugs.annotations.Nullable;
 
-public class EmployeeLambdaRuntime extends AbstractMicronautLambdaRuntime<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent, String, Iterable<Employee>> {
+public class EmployeeLambdaRuntime extends AbstractMicronautLambdaRuntime<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent, Input, Iterable<Employee>> {
 
     public static void main(String[] args) {
         try {
@@ -19,7 +19,7 @@ public class EmployeeLambdaRuntime extends AbstractMicronautLambdaRuntime<APIGat
 
     @Override
     @Nullable
-    protected RequestHandler<String, Iterable<Employee>> createRequestHandler(String... args) {
+    protected RequestHandler<Input, Iterable<Employee>> createRequestHandler(String... args) {
         return new GetEmployees();
     }
 }

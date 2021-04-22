@@ -12,18 +12,14 @@ public class Employee {
     private Integer id;
     private String name;
     private String email;
-    @ManyToOne
-    @JoinColumn(name = "supervisorId")
-    private Employee supervisor;
 
     public Employee() {
     }
 
-    public Employee(Integer empId, String name, String email, Employee supervisor) {
+    public Employee(Integer empId, String name, String email) {
         this.id = empId;
         this.name = name;
         this.email = email;
-        this.supervisor = supervisor;
     }
 
     public Integer getId() {
@@ -48,13 +44,5 @@ public class Employee {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public Employee getSupervisor() {
-        return supervisor;
-    }
-
-    public void setSupervisor(Employee supervisor) {
-        this.supervisor = supervisor;
     }
 }
